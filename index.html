@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <meta name="description" content="Pooja Jain — Creative Developer portfolio. Computer Science undergraduate building software end-to-end, from database design to functional interfaces." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Sacramento&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ░░ SVG FILTERS ░░ -->
+  <svg class="svg-defs" aria-hidden="true">
+    <defs>
+      <filter id="wavy">
+        <feTurbulence id="wavyTurb" type="fractalNoise" baseFrequency="0 0" numOctaves="2" result="noise" seed="3" />
+        <feDisplacementMap id="wavyDisp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+      <path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+    </defs>
+  </svg>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ░░ LOADER ░░ -->
+  <div class="loader" id="loader">
+    <div class="loader__counter" id="loaderCounter">
+      <span class="loader__num" id="loaderNum">0%</span>
+      <svg class="loader__ring" viewBox="0 0 60 60">
+        <circle class="loader__ring-track" cx="30" cy="30" r="24" />
+        <circle class="loader__ring-arc" cx="30" cy="30" r="24" />
+      </svg>
+    </div>
+    <svg class="loader__hello" id="loaderHello" viewBox="0 0 420 200">
+      <text x="50%" y="62%" text-anchor="middle" class="loader__hello-text">hello</text>
+    </svg>
+    <div class="loader__tiles" id="loaderTiles"></div>
+  </div>
+
+  <!-- ░░ MENU OVERLAY ░░ -->
+  <div class="menu" id="menu">
+    <button class="menu__close" id="menuClose" aria-label="Close menu">
+      <span></span><span></span>
+    </button>
+    <nav class="menu__nav">
+      <a href="#work" class="menu__link">WORK</a>
+      <a href="#about" class="menu__link">ABOUT</a>
+      <a href="#journal" class="menu__link">JOURNAL</a>
+      <a href="#expertise" class="menu__link">EXPERTISE</a>
+      <a href="#contact" class="menu__link">CONTACT</a>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- ░░ HERO ░░ -->
+    <section class="hero" id="home">
+      <header class="hero__header">
+        <a href="#home" class="logo">pooja</a>
+        <nav class="hero__nav">
+          <a href="#work">WORK</a>
+          <a href="#about">ABOUT</a>
+          <a href="#journal">JOURNAL</a>
+          <a href="#expertise">EXPERTISE</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+        <button class="burger" id="burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <div class="hero__center">
+        <h1 class="hero__title" id="heroTitle">CREATIVE</h1>
+        <h2 class="hero__sub">DEVELOPER</h2>
+        <div class="hero__tags">
+          <span>DATA</span><i></i><span>CODE</span><i></i><span>EXPERIENCE</span>
+        </div>
+        <a href="#about" class="hero__scroll">
+          <span>SCROLL TO EXPLORE</span>
+          <svg viewBox="0 0 12 36" class="scroll-icon"><line x1="6" y1="0" x2="6" y2="26" /><circle cx="6" cy="30" r="4" /></svg>
+        </a>
+      </div>
+
+      <div class="hero__footer">
+        <div class="hero__copy">©2026 <span class="script">pooja</span></div>
+        <div class="hero__badge-wrap">
+          <a href="#contact" class="badge" aria-label="Let's work together">
+            <svg viewBox="0 0 120 120" class="badge__ring">
+              <text class="badge__text"><textPath href="#circlePath">LET'S WORK TOGETHER • LET'S WORK TOGETHER •</textPath></text>
+            </svg>
+            <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+          </a>
+          <span class="hero__based">BASED IN INDIA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ ABOUT ░░ -->
+    <section class="about" id="about">
+      <div class="section-head">
+        <div class="section-head__label"><span>02</span><i></i><span>THE PERSON BEHIND THE WORK</span></div>
+        <h2 class="section-head__title">ABOUT ME</h2>
+        <div class="section-head__line"></div>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__card" id="aboutCard">
+          <div class="about__card-grid"></div>
+          <div class="about__card-name">POOJA JAIN</div>
+          <div class="about__card-mono">PJ</div>
+          <div class="about__card-meta">
+            <span>CREATIVE DEVELOPER</span>
+            <span>B.TECH · CSE</span>
+            <span>JAIPUR, IN</span>
+          </div>
+          <svg viewBox="0 0 120 120" class="about__card-ring">
+            <text><textPath href="#circlePath">DATA • CODE • DESIGN • DATA • CODE • DESIGN •</textPath></text>
+          </svg>
+          <div class="about__card-icons">
+            <span>&lt;/&gt;</span><span>↗</span><span>▤</span>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <div class="mini-label"><i></i><span>WHO AM I ?</span></div>
+          <h3 class="about__heading">
+            I BUILD <em>DIGITAL PRODUCTS</em> WHERE <em>DATA</em> MEETS <em>DESIGN.</em>
+          </h3>
+          <div class="about__paras">
+            <p>I'm <span class="gold">Pooja</span> — a Computer Science undergraduate who builds and ships working software end-to-end, from database design to functional prototypes.</p>
+            <p>I care about understanding the problem and the data model before writing code. Python automation, SQL-backed applications and frontend development are where I spend my time, and I'm growing into full-stack work with React and Node.</p>
+          </div>
+          <div class="about__stats">
+            <div><small>BASED</small><strong>JAIPUR, INDIA</strong></div>
+            <div><small>FOCUS</small><strong>FULL-STACK / DATA</strong></div>
+            <div><small>BUILDING SOFTWARE</small><strong>2+ YEARS</strong></div>
+            <div><small>MINDSET</small><strong>ALWAYS LEARNING</strong></div>
+            <div><small>PROJECTS DONE</small><strong>6+</strong></div>
+            <div><small>EDUCATION</small><strong>B.TECH CSE · JECRC</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ EXPERTISE ░░ -->
+    <section class="expertise" id="expertise">
+      <div class="section-tag"><span>03</span><i>—</i><span>EXPERTISE</span></div>
+
+      <div class="expertise__grid">
+        <div class="expertise__left">
+          <h2 class="expertise__title"><span class="dim">MY</span><br />EXPERTISE</h2>
+          <p class="expertise__lead">I design and build digital products where <span class="gold">data, code and design</span> work as one.</p>
+          <p class="expertise__desc">From relational schemas to responsive interfaces, I combine backend logic with frontend craft to create software that actually ships.</p>
+          <div class="chips">
+            <span>PYTHON</span><span>SQL</span><span>JAVASCRIPT</span><span>FLASK</span><span>SUPABASE</span><span>REACT</span>
+          </div>
+
+          <div class="float-icons" id="floatIcons">
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="Python" style="--x:62%;--y:8%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="JavaScript" style="--x:80%;--y:42%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="React" style="--x:70%;--y:70%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" style="--x:40%;--y:78%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5" style="--x:8%;--y:88%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="CSS3" style="--x:52%;--y:92%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/flask/flask-original.svg" alt="Flask" style="--x:92%;--y:12%" />
+            <img class="ficon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="Git" style="--x:28%;--y:62%" />
+          </div>
+        </div>
+
+        <ul class="skills">
+          <li class="skill">
+            <span class="skill__cat">01 / DEVELOPMENT</span>
+            <div class="skill__row">
+              <span class="skill__num">01</span>
+              <span class="skill__icon">&lt;/&gt;</span>
+              <div class="skill__body">
+                <h4>Frontend Development</h4>
+                <p>Building responsive, reliable interfaces with HTML, CSS and JavaScript, now growing into React.</p>
+                <div class="skill__tags"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>REACT</span></div>
+              </div>
+              <span class="skill__link">↗</span>
+            </div>
+            <div class="skill__preview"><div class="pv pv-1"><i></i><i></i><i></i><b></b></div></div>
+          </li>
+          <li class="skill">
+            <span class="skill__cat">02 / BACKEND</span>
+            <div class="skill__row">
+              <span class="skill__num">02</span>
+              <span class="skill__icon">⚙</span>
+              <div class="skill__body">
+                <h4>Backend &amp; APIs</h4>
+                <p>Designing Flask services and Supabase backends that turn data models into working products.</p>
+                <div class="skill__tags"><span>PYTHON</span><span>FLASK</span><span>SUPABASE</span><span>REST APIS</span></div>
+              </div>
+              <span class="skill__link">↗</span>
+            </div>
+            <div class="skill__preview"><div class="pv pv-2"><code>GET /api/transactions<br/>200 OK · 12ms<br/>{ "rows": 2048 }</code></div></div>
+          </li>
+          <li class="skill">
+            <span class="skill__cat">03 / DATA</span>
+            <div class="skill__row">
+              <span class="skill__num">03</span>
+              <span class="skill__icon">▤</span>
+              <div class="skill__body">
+                <h4>Databases &amp; SQL</h4>
+                <p>Schema design, query optimization and relational data modeling across MySQL, PostgreSQL and SQLite.</p>
+                <div class="skill__tags"><span>MYSQL</span><span>POSTGRESQL</span><span>SQLITE</span><span>MODELING</span></div>
+              </div>
+              <span class="skill__link">↗</span>
+            </div>
+            <div class="skill__preview"><div class="pv pv-3"><code>SELECT category,<br/>&nbsp;&nbsp;SUM(amount)<br/>FROM spend GROUP BY 1;</code></div></div>
+          </li>
+          <li class="skill">
+            <span class="skill__cat">04 / AI &amp; AUTOMATION</span>
+            <div class="skill__row">
+              <span class="skill__num">04</span>
+              <span class="skill__icon">✦</span>
+              <div class="skill__body">
+                <h4>AI &amp; Automation</h4>
+                <p>Python automation, NLP and generative AI workflows that remove manual effort from real operations.</p>
+                <div class="skill__tags"><span>NLP</span><span>GEN AI</span><span>PROMPT ENGINEERING</span><span>ML</span></div>
+              </div>
+              <span class="skill__link">↗</span>
+            </div>
+            <div class="skill__preview"><div class="pv pv-4"><span class="pv-line w70"></span><span class="pv-line w90"></span><span class="pv-line w50"></span><em>classified · ready</em></div></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ░░ JOURNAL ░░ -->
+    <section class="journal" id="journal">
+      <div class="section-tag"><span>04</span><i>—</i><span>JOURNAL</span></div>
+      <div class="journal__head">
+        <h2 class="journal__title"><span class="dim">MY</span> JOURNEY</h2>
+        <p>Internships, hackathons and the places I've built things.</p>
+      </div>
+      <ol class="timeline">
+        <li class="tl">
+          <span class="tl__date">APR 2026 — MAY 2026</span>
+          <div class="tl__body">
+            <h4>AutoCAD &amp; Python Intern</h4>
+            <span class="tl__org">College of Aviation Technology · Bangladesh</span>
+            <p>Wrote Python automation scripts to eliminate repetitive engineering workflow steps and worked with engineering teams to troubleshoot design issues.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <span class="tl__date">SEP 2025 — NOV 2025</span>
+          <div class="tl__body">
+            <h4>Research &amp; Database Analyst</h4>
+            <span class="tl__org">Universidad Tecnológica de Panamá · Panama</span>
+            <p>Designed and executed SQL queries for extraction, validation and reporting on structured research datasets, improving accuracy across analysis pipelines.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <span class="tl__date">JUL 2024 — SEP 2024</span>
+          <div class="tl__body">
+            <h4>Web Development Intern</h4>
+            <span class="tl__org">SECRETEYE</span>
+            <p>Built and maintained responsive web pages with HTML, CSS and JavaScript, fixed cross-browser UI bugs and took part in release checks before deployment.</p>
+          </div>
+        </li>
+        <li class="tl">
+          <span class="tl__date">2023 — PRESENT</span>
+          <div class="tl__body">
+            <h4>B.Tech in Computer Science Engineering</h4>
+            <span class="tl__org">JECRC University · Jaipur</span>
+            <p>Head, Design Department &amp; HRA Member at IAESTE LC JECRC. Core Team Member at JECRC Incubation Center.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="honors">
+        <div class="honor"><small>ACHIEVEMENT</small><strong>Healthcare Hackathon Finalist — Top 15</strong><span>2026</span></div>
+        <div class="honor"><small>ACHIEVEMENT</small><strong>Smart India Hackathon Participant</strong><span>2025</span></div>
+        <div class="honor"><small>OPEN SOURCE</small><strong>Social Summer of Code Contributor</strong><span>2025</span></div>
+        <div class="honor"><small>CERTIFIED</small><strong>ServiceNow CIS — Data Foundations, CMDB &amp; CSDM</strong><span>2025</span></div>
+        <div class="honor"><small>CERTIFIED</small><strong>Generative AI &amp; Gemini CLI — GDG × Hack2Skill</strong><span>2025</span></div>
+        <div class="honor"><small>CERTIFIED</small><strong>API Development — Infosys Springboard</strong><span>2025</span></div>
+      </div>
+    </section>
+
+    <!-- ░░ WORK INTRO ░░ -->
+    <section class="work-intro" id="work">
+      <div class="marquee marquee--top">
+        <div class="marquee__track">
+          <span>PYTHON</span><span>SQL</span><span>JAVASCRIPT</span><span>FLASK</span><span>SUPABASE</span><span>REACT JS</span><span>POSTGRESQL</span><span>GIT</span>
+          <span>PYTHON</span><span>SQL</span><span>JAVASCRIPT</span><span>FLASK</span><span>SUPABASE</span><span>REACT JS</span><span>POSTGRESQL</span><span>GIT</span>
+        </div>
+      </div>
+
+      <div class="work-intro__scroll">
+        <span>SCROLL TO EXPLORE MY</span>
+        <svg viewBox="0 0 12 36" class="scroll-icon"><line x1="6" y1="0" x2="6" y2="26" /><circle cx="6" cy="30" r="4" /></svg>
+      </div>
+
+      <div class="work-intro__word">
+        <svg viewBox="0 0 1200 420" class="work-svg" id="workSvg" preserveAspectRatio="xMidYMid meet">
+          <g filter="url(#goo)" id="gooGroup">
+            <text x="600" y="330" text-anchor="middle" class="work-svg__text">WORK</text>
+            <g id="drips"></g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="marquee marquee--bottom">
+        <div class="marquee__track">
+          <span>FULL-STACK</span><i>✦</i><span>DATABASES</span><i>✦</i><span>AI &amp; AUTOMATION</span><i>✦</i><span>FRONTEND</span><i>✦</i>
+          <span>FULL-STACK</span><i>✦</i><span>DATABASES</span><i>✦</i><span>AI &amp; AUTOMATION</span><i>✦</i><span>FRONTEND</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ PROJECTS ░░ -->
+    <section class="projects" id="projects">
+      <h2 class="projects__title">MY WORK</h2>
+
+      <div class="stack">
+
+        <!-- 01 FinFlow -->
+        <article class="proj" data-index="1">
+          <div class="proj__shot shot-finflow">
+            <div class="ff-side">
+              <b>FinFlow</b><span>Dashboard</span><span>Transactions</span><span>Analytics</span><span>Budgets</span><span>Settings</span>
+            </div>
+            <div class="ff-main">
+              <div class="ff-top"><span>Good morning, Pooja</span><em>May 2026</em></div>
+              <div class="ff-cards">
+                <div><small>Balance</small><strong>₹1,24,560</strong></div>
+                <div><small>Income</small><strong>₹58,000</strong></div>
+                <div><small>Spent</small><strong>₹21,340</strong></div>
+              </div>
+              <div class="ff-chart">
+                <i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:30%"></i><i style="--h:80%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:48%"></i><i style="--h:70%"></i><i style="--h:35%"></i><i style="--h:60%"></i>
+              </div>
+              <div class="ff-rows">
+                <div><span>Groceries</span><em>−₹1,240</em></div>
+                <div><span>Rent</span><em>−₹12,000</em></div>
+                <div><span>Freelance</span><em class="up">+₹8,500</em></div>
+              </div>
+            </div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>PERSONAL PROJECT · 01</span></div>
+            <h3>FinFlow — Smart Finance Tracker</h3>
+            <p>A personal finance tracker built end-to-end, from database schema to functioning app, managing 2,000+ transactions with spending analytics across 10+ categories.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>Python</span><span>SQL</span><span>Flask</span><span>Supabase</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 02 AI Discharge -->
+        <article class="proj" data-index="2">
+          <div class="proj__shot shot-discharge">
+            <div class="dc-head"><b>MediFlow</b><span>Discharge Assistant</span><em>AI</em></div>
+            <div class="dc-body">
+              <div class="dc-patient">
+                <strong>Patient #4821</strong><span>Ward C · Admitted 14 Apr</span>
+                <div class="dc-tag">Ready for discharge</div>
+              </div>
+              <div class="dc-summary">
+                <small>AI GENERATED SUMMARY</small>
+                <i class="w90"></i><i class="w75"></i><i class="w95"></i><i class="w60"></i>
+                <small>CLASSIFICATION</small>
+                <div class="dc-pills"><span>Follow-up</span><span>Medication</span><span>Diet</span></div>
+              </div>
+            </div>
+            <div class="dc-foot"><span>−40% documentation time</span><span>+35% accuracy</span></div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>HEALTHCARE HACKATHON · 02</span></div>
+            <h3>AI Patient Discharge System</h3>
+            <p>An AI-powered discharge system built in Python with NLP and SQL that automates summary processing, cutting documentation time by ~40% and improving workflow accuracy by 35%.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>Python</span><span>NLP</span><span>SQL</span><span>Generative AI</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 03 TAT Meals -->
+        <article class="proj" data-index="3">
+          <div class="proj__shot shot-tat">
+            <div class="tat-head"><b>TAT Tracker</b><span>Hospital Meal Operations</span><em>512 orders today</em></div>
+            <div class="tat-cols">
+              <div class="tat-col"><small>PREP</small><div class="tk">#1042 · Ward A<i>04:12</i></div><div class="tk">#1043 · ICU<i>02:48</i></div><div class="tk">#1044 · Ward D<i>01:05</i></div></div>
+              <div class="tat-col"><small>DISPATCH</small><div class="tk hot">#1039 · Ward B<i>11:30</i></div><div class="tk">#1040 · Ward C<i>06:21</i></div></div>
+              <div class="tat-col"><small>DELIVERED</small><div class="tk done">#1031 · Ward A<i>✓ 18m</i></div><div class="tk done">#1032 · ICU<i>✓ 14m</i></div><div class="tk done">#1033 · Ward B<i>✓ 21m</i></div></div>
+            </div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>HEALTHCARE HACKATHON · 03</span></div>
+            <h3>TAT Meal Tracking System</h3>
+            <p>A relational database and application that tracks hospital meal prep, dispatch and delivery turnaround for 500+ daily orders, reducing manual tracking effort by 60%.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>SQL</span><span>Python</span><span>Database Design</span><span>Reporting</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 04 SECRETEYE -->
+        <article class="proj" data-index="4">
+          <div class="proj__shot shot-web">
+            <div class="web-nav"><b>SECRETEYE</b><span>Services</span><span>Work</span><span>About</span><em>Get in touch</em></div>
+            <div class="web-hero">
+              <h5>Security that<br/>sees everything.</h5>
+              <p>Responsive, cross-browser and shipped through release checks.</p>
+              <div class="web-cta"><span>Explore</span><span class="ghost">Learn more</span></div>
+            </div>
+            <div class="web-cards"><div></div><div></div><div></div></div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>WEB DEVELOPMENT INTERNSHIP · 04</span></div>
+            <h3>Responsive Web Pages</h3>
+            <p>Responsive web pages built and maintained with HTML, CSS and JavaScript at SECRETEYE, with cross-browser UI fixes caught in testing before every release.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Testing</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 05 Research pipeline -->
+        <article class="proj" data-index="5">
+          <div class="proj__shot shot-sql">
+            <div class="sql-editor">
+              <div class="sql-tabs"><span class="on">validate.sql</span><span>report.sql</span><span>clean.py</span></div>
+              <pre><span class="k">SELECT</span> site_id, <span class="f">COUNT</span>(*) <span class="k">AS</span> samples,
+       <span class="f">AVG</span>(reading) <span class="k">AS</span> mean_reading
+<span class="k">FROM</span> research.readings
+<span class="k">WHERE</span> reading <span class="k">IS NOT NULL</span>
+<span class="k">GROUP BY</span> site_id
+<span class="k">ORDER BY</span> samples <span class="k">DESC</span>;</pre>
+            </div>
+            <div class="sql-result">
+              <div class="r h"><span>site_id</span><span>samples</span><span>mean_reading</span></div>
+              <div class="r"><span>PTY-01</span><span>1,284</span><span>42.17</span></div>
+              <div class="r"><span>PTY-04</span><span>1,102</span><span>39.80</span></div>
+              <div class="r"><span>PTY-02</span><span>964</span><span>44.02</span></div>
+              <div class="r"><span>PTY-07</span><span>718</span><span>40.65</span></div>
+            </div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>UNIVERSIDAD TECNOLÓGICA DE PANAMÁ · 05</span></div>
+            <h3>Research Data Pipeline</h3>
+            <p>SQL-driven extraction, validation and reporting on structured research datasets, turning messy raw inputs into clean, documented structure for technical reports.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>SQL</span><span>PostgreSQL</span><span>Data Cleaning</span><span>Reporting</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 06 Automation -->
+        <article class="proj" data-index="6">
+          <div class="proj__shot shot-term">
+            <div class="term">
+              <div class="term-bar"><i></i><i></i><i></i><span>cad_automation.py</span></div>
+              <pre><span class="p">$</span> python cad_automation.py --batch drawings/
+<span class="g">✔</span> Loaded 48 drawings
+<span class="g">✔</span> Normalised layers · 48/48
+<span class="g">✔</span> Applied title blocks · 48/48
+<span class="g">✔</span> Exported DWG → PDF · 48/48
+<span class="y">⏱</span> Done in 11.2s  (manual est. 3h 40m)</pre>
+            </div>
+            <div class="cad-grid"><div class="cad-shape"></div><div class="cad-shape s2"></div></div>
+          </div>
+          <div class="proj__overlay">
+            <div class="mini-label"><i></i><span>COLLEGE OF AVIATION TECHNOLOGY · 06</span></div>
+            <h3>Engineering Automation Scripts</h3>
+            <p>Python automation that removes repetitive AutoCAD workflow steps for engineering teams, translating requirements into working fixes and reducing manual effort.</p>
+            <div class="proj__line"></div>
+            <div class="chips chips--round"><span>Python</span><span>AutoCAD</span><span>Automation</span><span>Scripting</span></div>
+            <a class="badge badge--proj" href="https://github.com/Pooja6-9" target="_blank" rel="noopener" aria-label="View code">
+              <svg viewBox="0 0 120 120" class="badge__ring"><text class="badge__text"><textPath href="#circlePath">VIEW MASTERPIECE • VIEW CODE •</textPath></text></svg>
+              <svg viewBox="0 0 24 24" class="badge__arrow"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ░░ CONTACT ░░ -->
+    <section class="contact" id="contact">
+      <div class="contact__ghost">CONTACT</div>
+      <div class="contact__grid">
+        <div class="contact__left">
+          <div class="mini-label"><i></i><span>CONTACT</span></div>
+          <h2 class="contact__title">Let's create<br /><span class="gold">something</span><br />meaningful.</h2>
+          <p class="contact__lead">Have a project in mind, a question, or simply want to talk about an idea? I'd love to hear from you.</p>
+
+          <div class="contact__cards">
+            <a class="ccard" href="mailto:pooja.jain06092005@gmail.com">
+              <span class="ccard__icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg></span>
+              <span class="ccard__text"><strong>Email me</strong><small>pooja.jain06092005@gmail.com</small></span>
+              <span class="ccard__arrow">↗</span>
+            </a>
+            <a class="ccard" href="https://linkedin.com/in/pooja-jain6" target="_blank" rel="noopener">
+              <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M6 9v10M6 5v.5M10 19v-6a3 3 0 016 0v6M10 9v10" /></svg></span>
+              <span class="ccard__text"><strong>Connect</strong><small>LinkedIn</small></span>
+              <span class="ccard__arrow">↗</span>
+            </a>
+            <a class="ccard" href="https://github.com/Pooja6-9" target="_blank" rel="noopener">
+              <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 00-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004.4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg></span>
+              <span class="ccard__text"><strong>Code</strong><small>github.com/Pooja6-9</small></span>
+              <span class="ccard__arrow">↗</span>
+            </a>
+            <a class="ccard" href="https://maps.google.com/?q=Jaipur,India" target="_blank" rel="noopener">
+              <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg></span>
+              <span class="ccard__text"><strong>Based in</strong><small>Jaipur, India</small></span>
+              <span class="ccard__arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="cform" id="contactForm">
+          <label class="cform__field">
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label class="cform__field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </label>
+          <label class="cform__field cform__field--area">
+            <span>Message</span>
+            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+          </label>
+          <button type="submit" class="cform__btn">Send Message <i>↗</i></button>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <span>©2026 <span class="script">pooja</span></span>
+        <span>Designed &amp; built with care · Jaipur, India</span>
+        <a href="#home">Back to top ↑</a>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
